@@ -13,7 +13,7 @@
 
 
 
-namespace Fly
+namespace FlyMUD
 {
 
   //品质
@@ -74,7 +74,7 @@ namespace Fly
       return this->atk_formula(this);
     };
 
-    
+ 
     /**
      *  默认获取计算后的
      * @return false获取计算后的,true获取原始的

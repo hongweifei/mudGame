@@ -28,7 +28,6 @@
 
 
 
-
 /******************************************************************************************************************
  *
  * 一些特殊符号
@@ -94,60 +93,12 @@
 */
 
 
-namespace FlyConsole
+namespace Fly
 {
 
-
-    class Console
+    namespace Console
     {
-    private:
 
-        uint32_t width;
-        uint32_t height;
-
-        #ifndef NCURSES
-
-            #if WIN32
-
-            HANDLE backstage_buffer;            // 要修改的（后台）
-            HANDLE buffer1;
-            HANDLE buffer2;
-
-            CONSOLE_SCREEN_BUFFER_INFO *info;
-
-            #endif // Win32
-
-        #else
-
-        ::WINDOW *window;
-        ::std::map<short,short> color;
-        ::uint16_t color_count = 8;
-
-        #endif // NCURSES
-        
-
-    private:
-        void updata()
-        {
-            #ifndef NCURSES
-
-                #if WIN32
-
-                GetConsoleScreenBufferInfo(this->backstage_buffer,this->info);
-                this->width = this->info->dwSize.X;
-                this->height = this->info->dwSize.Y;
-
-                #endif // WIN32
-
-            #else
-
-            getmaxyx(this->window, this->height, this->width);
-
-            #endif // NCURSES
-        }
-
-
-    public:
 
         typedef enum __print_color__ : int16_t
         {
@@ -179,46 +130,20 @@ namespace FlyConsole
             CBREAK
         } GetchWay;
 
-    
-    private:
-        short get_ncurses_color(short color)
-        {
-            #ifdef NCURSES
 
-            switch (color)
-            {
-            case FOREGROUND_BLACK:
-                return COLOR_BLACK;
-            case FOREGROUND_red:
-                return COLOR_RED;
-            case FOREGROUND_green:
-                return COLOR_GREEN;
-            case FOREGROUND_YELLOW:
-                return COLOR_YELLOW;
-            case FOREGROUND_blue:
-                return COLOR_BLUE;
-            case FOREGROUND_MAGENTA:
-                return COLOR_MAGENTA;
-            case FOREGROUND_CYAN:
-                return COLOR_CYAN;
-            case FOREGROUND_WHITE:
-                return COLOR_WHITE;
-            
-            default:
-                return 0;
-            }
-            
-            #endif // NCURSES
 
-            return 0;
-        }
 
-    public:
-        Console();
-        ~Console();
+        
+
+
+
 
 
         void color_init();
+        void init();
+        void exit();
+
+
         
 
         /**
@@ -256,7 +181,7 @@ namespace FlyConsole
          * @param x:存储列数（横坐标）的变量
          * @param y:存储行数（纵坐标）的变量
          * */
-        void get_cursor_position(int16_t &x,int16_t &y);
+        void get_cursor_position(int16_t x,int16_t y);
 
 
 
@@ -329,7 +254,7 @@ namespace FlyConsole
          * 
          * @return 返回 颜色对 的编号
          * */
-        uint16_t add_color_pair(short foreground_color,short background_color){ return 0; };
+        //uint16_t add_color_pair(short foreground_color,short background_color){ return 0; };
 
 
         /**
@@ -340,7 +265,8 @@ namespace FlyConsole
 
         void print(const char *text);
         void print(int16_t x,int16_t y,const char *text);
-    };
+    }
+
 
     
 

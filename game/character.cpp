@@ -10,7 +10,7 @@
 
 
 
-namespace Fly
+namespace FlyMUD
 {
 
   Equipment::Equipment(EquipmentType type, Quality quality, ::std::string name, uint32_t atk, uint32_t hp, uint32_t level)
@@ -23,6 +23,7 @@ namespace Fly
     this->level = level;
 
 
+    
     
 
     
