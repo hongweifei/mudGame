@@ -12,66 +12,74 @@
 #include <vector>
 
 
-namespace FlyMUD
+namespace Fly
 {
 
+	namespace MUD
+	{
 
-  class Node
-  {
-  public:
-    typedef enum __node_type__
-      {
-       NONE,
-       BUILDING,
-      } NodeType;
 
-    typedef enum __node_print_way__
-      {
-       UP,
-       DOWN,
-       LEFT,
-       RIGHT
-      } NodePrintWay;
+	  class Node
+	  {
+	  public:
+	    typedef enum __node_type__
+	      {
+	       NONE,
+	       BUILDING,
+	      } NodeType;
 
-  private:
-    ::std::string name;
-    NodeType type = NONE;
-    
-  public:
-    
-    Node *up;
-    Node *down;
-    Node *left;
-    Node *right;
+	    typedef enum __node_print_way__
+	      {
+	       UP,
+	       DOWN,
+	       LEFT,
+	       RIGHT
+	      } NodePrintWay;
 
-    void(*arrive_event)(Node*) = [](Node *node){return;};    //到达事件
-    void(*keyboard_event)(Node*) = [](Node *node){return;};  //键盘事件
-    void(*enter_event)(Node*) = [](Node *node){return;};     //回车事件
-    
-    Node(::std::string &name,Node::NodeType type,
-	 Node *up = NULL,Node *down = NULL,Node *left = NULL,Node *right = NULL);
-    ~Node();
+	  private:
+	    ::std::string name;
+	    NodeType type = NONE;
+	    
+	  public:
+	    
+	    Node *up;
+	    Node *down;
+	    Node *left;
+	    Node *right;
 
-    ::std::string get_name(){return this->name;};
+	    void(*arrive_event)(Node*) = [](Node *node){return;};    //到达事件
+	    void(*keyboard_event)(Node*) = [](Node *node){return;};  //键盘事件
+	    void(*enter_event)(Node*) = [](Node *node){return;};     //回车事件
+	    
+	    Node(::std::string &name,Node::NodeType type,
+		 Node *up = NULL,Node *down = NULL,Node *left = NULL,Node *right = NULL);
+	    ~Node();
 
-    void print();
-  };
+	    ::std::string get_name(){return this->name;};
+
+	    void print();
+	  };
+
+	  
+
+	  class Map
+	  {
+	  private:
+	    
+	  public:
+	    Node *center;
+	    
+	    
+	    Map();
+	    ~Map();
+
+	    void print();
+	  };
+
+
+	} // namespace MUD
 
   
-
-  class Map
-  {
-  private:
-    
-  public:
-    Node *center;
-    
-    
-    Map();
-    ~Map();
-
-    void print();
-  };
 
 
     
