@@ -26,7 +26,7 @@ namespace Fly
       this->left = left;
       this->right = right;
     }
-
+    
     Node::~Node()
     {
       delete this->up;
@@ -34,23 +34,23 @@ namespace Fly
       delete this->left;
       delete this->right;
     }
-
+    
     
     void Node::print()
     {
       if (this == NULL)
         return;
-
+      
       Console::print("-");                      // -
       Console::print(this->name.c_str());       // -name
-
+      
       uint16_t x,y;
       Console::get_cursor_position(x,y);
 
       x = x - this->name.length() / 2;
       y--;                                      //    |
       Console::print(x,y,"|");                  // -name
-
+      
       x--;
       y += 2;                                   //    |
       Console::print(x,y,"|");                  // -name
@@ -59,7 +59,7 @@ namespace Fly
       y++;                                      //    |
       Console::print("-");                      // -name-
     }                                           //    |
-
+    
   } // namespace MUD
 
   

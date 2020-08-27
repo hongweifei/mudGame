@@ -15,6 +15,7 @@
 
 
 #include "../console.hpp"
+#include "./character.hpp"
 #include <panel.h>
 
 
@@ -23,21 +24,22 @@ namespace Fly
 
   namespace MUD
   {
-
-
+    
+    
     namespace UI
     {
       #define ERROR_TEXT_COLOR Console::FOREGROUND_red|Console::BACKGROUND_BLACK
       #define WARNING_TEXT_COLOR Console::FOREGROUND_YELLOW|Console::BACKGROUND_BLACK
-		  
-
-      void init();
-
+      
+      
+      void init(Character*);
+      void release();
+      
       void draw_main();
       
       
     } // namespace UI
-
+    
     
     
   } // namespace MUD
