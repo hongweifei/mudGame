@@ -3,12 +3,12 @@
 
 
 
-
+#include "console.hpp"
 #include "game/character.hpp"
 #include "game/game_ui.hpp"
 #include <stdio.h>
 
-
+using namespace Fly;
 using namespace Fly::MUD;
 
 int main()
@@ -24,7 +24,7 @@ int main()
       ::UI::draw_main();
       update_panels();
       doupdate();
-      
+      //::Console::refresh();
     }
   
   ::UI::release();

@@ -120,6 +120,7 @@ namespace Fly
             ::keypad(window, TRUE);
             ::noecho();
             ::cbreak();                         //传回 'a' 'b' 之类的值
+            ::curs_set(1);                      //显示光标，0为隐藏
 
             ::start_color();
 
