@@ -93,11 +93,24 @@ namespace Fly
 
       void draw_main()
       {
+	int stdscr_w = getmaxx(stdscr);
+	int stdscr_h = getmaxy(stdscr);
+	int w = getmaxx(win[PLAYER_INFORMATION_WINDOW]);
+	int h = getmaxy(win[PLAYER_INFORMATION_WINDOW]);
 
-	mvwprintw(win[PLAYER_INFORMATION_WINDOW],2,2,"Name:%s",player->get_name().c_str());
-	mvwprintw(win[PLAYER_INFORMATION_WINDOW],4,2,"Level:%d",player->level);
-	mvwprintw(win[PLAYER_INFORMATION_WINDOW],6,2,"HP:%d",player->get_hp());
-	mvwprintw(win[PLAYER_INFORMATION_WINDOW],8,2,"ATK:%d",player->get_atk());
+	
+	int x = 2;
+	int y = 2;
+	if (stdscr_w <= 80)
+	  x = 1;
+	if (stdscr_h <= 25)
+	  y = 1;
+	
+
+	mvwprintw(win[PLAYER_INFORMATION_WINDOW],y,x,"Name:%s",player->get_name().c_str());
+	mvwprintw(win[PLAYER_INFORMATION_WINDOW],y * 2,x,"Level:%d",player->level);
+	mvwprintw(win[PLAYER_INFORMATION_WINDOW],y * 3,x,"HP:%d",player->get_hp());
+	mvwprintw(win[PLAYER_INFORMATION_WINDOW],y * 4,x,"ATK:%d",player->get_atk());
       }
 
 
