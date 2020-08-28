@@ -11,10 +11,16 @@
 
 
 #ifdef WIN32
+    
+    #ifdef __MINGW32__
+    #include <windows.h>
+    #else
     #include <Windows.h>
+    #endif // MINGW32
+
 
     #ifdef NCURSES
-    #include "include/ncursesw/ncurses.h"
+    #include <ncurses/ncurses.h>
     #else
     #include <conio.h>
     #endif // NCURSES

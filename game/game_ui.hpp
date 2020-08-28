@@ -16,7 +16,13 @@
 
 #include "../console.hpp"
 #include "./character.hpp"
+
+
+#ifdef WIN32
+#include <ncurses/panel.h>
+#else
 #include <panel.h>
+#endif
 
 
 namespace Fly

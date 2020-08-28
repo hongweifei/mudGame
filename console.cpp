@@ -141,8 +141,8 @@ namespace Fly
 
                 #if WIN32
 
-                ::CloseHandle(this->buffer1);
-                ::CloseHandle(this->buffer2);
+	        ::CloseHandle(Console::buffer1);
+	        ::CloseHandle(Console::buffer2);
                 //delete(this->info);
 
                 #endif // WIN32
