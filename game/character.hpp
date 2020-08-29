@@ -24,32 +24,32 @@ namespace Fly
     //装备
     class Equipment
     {
-
+	  
     public:
-
+	  
       //品质
       typedef enum __quality__ : uint8_t
-	{
-	  QUALITY_GREEN = 1,   //绿色
-	  QUALITY_BLUE,    //蓝色
-	  QUALITY_PURPLE,    //紫色
-	  QUALITY_ORANGE,    //橙色
-	  QUALITY_RED,   //红色
-	  QUALITY_GOLD   //金色
-	} Quality;
-
-
+		{
+		  QUALITY_GREEN = 1,   //绿色
+		  QUALITY_BLUE,    //蓝色
+		  QUALITY_PURPLE,    //紫色
+		  QUALITY_ORANGE,    //橙色
+		  QUALITY_RED,   //红色
+		  QUALITY_GOLD   //金色
+		} Quality;
+	  
+	  
       //装备类型
       typedef enum __equipment_type__ : uint8_t
-	{
-	  EQUIPMENT_WEAPON,
-	  EQUIPMENT_ARMOR,
-	  EQUIPMENT_SHOES,
-	} Type;
+		{
+		  EQUIPMENT_WEAPON,
+		  EQUIPMENT_ARMOR,
+		  EQUIPMENT_SHOES,
+		} Type;
+	  
 
-
-
-
+	  
+	  
     private:  
       Type type;//装备的类型
       Quality quality;//装备的品质
@@ -58,9 +58,9 @@ namespace Fly
       uint32_t atk;//初始攻击力
       uint32_t hp;//初始生命值
       
-
+	  
       
-    
+	  
     public:
       uint32_t level;//装备的等级
       
@@ -148,7 +148,7 @@ namespace Fly
       Character(::std::string, uint32_t atk, uint32_t hp, uint32_t level = 1);
       ~Character();
       
-
+	  
       ::std::string get_name() { return this->name; };
       
       uint32_t get_atk(bool initial = false)

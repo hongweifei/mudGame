@@ -30,13 +30,13 @@ namespace Fly
 
   namespace MUD
   {
-    
+	
     
     namespace UI
     {
       #define ERROR_TEXT_COLOR Console::FOREGROUND_red|Console::BACKGROUND_BLACK
       #define WARNING_TEXT_COLOR Console::FOREGROUND_YELLOW|Console::BACKGROUND_BLACK
-      
+	  
       
       void init(Character*);
       void release();

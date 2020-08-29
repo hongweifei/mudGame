@@ -17,24 +17,24 @@ namespace Fly
 
   namespace MUD
   {
-    
+	
     
     class Node
     {
     public:
       typedef enum __node_type__
-	{
-	  NONE,
-	  BUILDING,
-	} NodeType;
+		{
+		  NONE,
+		  BUILDING,
+		} NodeType;
       
       typedef enum __node_print_way__
-	{
-	  UP,
-	  DOWN,
-	  LEFT,
-	  RIGHT
-	} NodePrintWay;
+		{
+		  UP,
+		  DOWN,
+		  LEFT,
+		  RIGHT
+		} NodePrintWay;
       
     private:
       ::std::string name;
@@ -52,7 +52,7 @@ namespace Fly
       void(*enter_event)(Node*) = [](Node *node){return;};     //回车事件
       
       Node(::std::string &name,Node::NodeType type,
-	   Node *up = NULL,Node *down = NULL,Node *left = NULL,Node *right = NULL);
+		   Node *up = NULL,Node *down = NULL,Node *left = NULL,Node *right = NULL);
       ~Node();
       
       ::std::string get_name(){return this->name;};
@@ -65,7 +65,7 @@ namespace Fly
     class Map
     {
     private:
-      
+	  
     public:
       Node *center;
       

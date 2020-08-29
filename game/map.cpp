@@ -46,7 +46,7 @@ namespace Fly
       
       uint16_t x,y;
       Console::get_cursor_position(x,y);
-
+	  
       x = x - this->name.length() / 2;
       y--;                                      //    |
       Console::print(x,y,"|");                  // -name
