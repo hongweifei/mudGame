@@ -27,8 +27,11 @@
 #else
 
 #define NCURSES
-#include <ncurses.h>
-
+    #ifndef WIN32
+    #include <ncurses.h>
+    #else
+    #include <ncurses/ncurses.h>
+    #endif
 #endif // WIN32
 
 
