@@ -72,6 +72,8 @@ int main()
   	fbinit();
 
 	  draw_line(1920,1080,0,0,0x00ff00ff,1);
+    draw_line(1000,0,1000,1079,0x00ff00ff,1);
+    draw_rect_stroke(1000,10,100,100,0x00ff00ff,2);
 
   	fbclose();
   	return 0;

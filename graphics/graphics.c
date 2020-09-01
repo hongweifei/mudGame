@@ -186,6 +186,22 @@ void draw_point(int32_t x, int32_t y, uint32_t color, uint32_t width)
 
 void draw_line(int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint32_t color, uint32_t width)
 {
+  if (x1 == x2)
+  {
+	if (y1 > y2)
+	{
+		for (uint32_t i = 0; i < y1 - y2; i++)
+			draw_point(x1,y2 + i,color,width);
+		return;
+	}
+
+	//y1 < y2
+	for (uint32_t i = 0; i < y2 - y1; i++)
+		draw_point(x1,y1 + i,color,width);
+	return;
+  }
+
+
   uint32_t *point_x;
   uint32_t *point_y;
 
@@ -200,7 +216,15 @@ void draw_line(int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint32_t color, u
 }
 
 
-
+void draw_rect_stroke(int32_t x, int32_t y, uint32_t width, uint32_t height, uint32_t color, uint32_t brush_width)
+{
+	int32_t right = x + width;
+	int32_t bottom = y + height;
+	draw_line(x, y, right, y, color, brush_width);
+	draw_line(right, y, right, bottom, color, brush_width);
+	draw_line(right, bottom, x, bottom, color, brush_width);
+	draw_line(x, bottom, x, y, color, brush_width);
+}
 
 
 
