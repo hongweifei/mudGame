@@ -71,9 +71,7 @@ int main()
 {
   	fbinit();
 
-	for (int i = 0; i < get_height(); i++)
-		for (int j = 0; j < get_width(); j++)
-  			draw_point(j,i,0xffffffff);
+	  draw_line(1920,1080,0,0,0x00ff00ff,1);
 
   	fbclose();
   	return 0;

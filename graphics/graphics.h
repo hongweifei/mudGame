@@ -18,14 +18,21 @@ void fbclose();
 #define fbinit() init(NULL,NULL,NULL)
 #define closefd fbclose
 
-uint32_t get_width();
-uint32_t get_height();
+uint32_t get_screen_width();
+uint32_t get_screen_height();
+struct fb_var_screeninfo get_screen_info();
 
-void draw_point(int32_t x, int32_t y, uint32_t color);
-void draw_line();
+void draw_point(int32_t x, int32_t y, uint32_t color, uint32_t width);
+void draw_line(int32_t x1, int32_t y1, int32_t x2, int32_t y2, uint32_t color, uint32_t width);
 
 
 
 
-#endif
+#endif // _GRAPHICS_HEAD_
+
+
+
+
+
+
 
