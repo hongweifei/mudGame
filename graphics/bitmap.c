@@ -7,7 +7,7 @@
 BITMAP *read_bitmap(const char *path)
 {
 
-  BITMAP *bitmap = (BITMAP*)calloc(1,sizeof(BITMAP));
+  BITMAP *bitmap = (BITMAP*)calloc(1, sizeof(BITMAP));
 
   FILE *fp = fopen(path,"rb");
   if (fp == NULL)
@@ -27,7 +27,7 @@ BITMAP *read_bitmap(const char *path)
   uint32_t width = bitmap->information_header.width;
   uint32_t height = bitmap->information_header.height;
 
-  bitmap->color_table = (BITMAP_Palette)calloc(width * height,sizeof(BITMAP_RGBQUAD));
+  bitmap->color_table = (BITMAP_Palette)calloc(width * height, sizeof(BITMAP_RGBQUAD));
   
   #ifdef DEBUG
   print_bitmap_information(bitmap);
@@ -54,8 +54,6 @@ BITMAP *read_bitmap(const char *path)
         uint32_t index = i * width + j;
         fread(&bitmap->color_table[index],3L,1,fp);
         bitmap->color_table[index].reserved = 0;
-
-        printf("%d\t",RGB2HEX(bitmap->color_table[index].r,bitmap->color_table[index].g,bitmap->color_table[index].b));
       }
       
     }
@@ -68,7 +66,7 @@ BITMAP *read_bitmap(const char *path)
     {
       for (size_t j = 0; j < width; j++)
       {
-        fread(&bitmap->color_table[i * width + j],1,sizeof(BITMAP_RGBQUAD),fp);
+        fread(&bitmap->color_table[i * width + j], sizeof(BITMAP_RGBQUAD), 1,fp);
       }
       
     }
