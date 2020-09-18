@@ -13,6 +13,9 @@
 #include <linux/fb.h>
 
 
+#include "bitmap.h"
+
+
 typedef struct point Point;
 struct point
 {
@@ -36,6 +39,9 @@ void draw_rect_stroke(int32_t x, int32_t y, uint32_t width, uint32_t height, uin
 void draw_rect_fill(int32_t x, int32_t y, uint32_t width, uint32_t height, uint32_t color, uint32_t brush_width);
 void draw_circle_stroke(int32_t x, int32_t y, uint32_t r, uint32_t color, uint32_t brush_width);
 void draw_circle_fill(int32_t x, int32_t y, uint32_t r, uint32_t color, uint32_t brush_width);
+
+
+void draw_bitmap(int32_t x, int32_t y, BITMAP *bitmap);
 
 
 #endif // _GRAPHICS_HEAD_

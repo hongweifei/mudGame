@@ -449,7 +449,19 @@ void draw_circle_fill(int32_t x, int32_t y, uint32_t r, uint32_t color, uint32_t
 
 
 
-
+void draw_bitmap(int32_t x, int32_t y, BITMAP *bitmap)
+{
+  for (size_t i = 0; i < bitmap->information_header.height; i++)
+  {
+    for (size_t j = 0; j < bitmap->information_header.width; j++)
+    {
+      BITMAP_RGBQUAD *rgb = &bitmap->color_table[i * width + j];
+      draw_point(x + j, y + i, RGB2HEX(rgb->r,rgb->g,rgb->b), 1);
+    }
+    
+  }
+  
+}
 
 
 
